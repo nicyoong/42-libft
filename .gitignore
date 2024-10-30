@@ -1,0 +1,14 @@
+*.exe
+*.out
+
+.vscode/
+
+*.bat
+*.sh
+
+*.tmp
+*.temp
+
+*.log
+
+output.txt

@@ -1,0 +1,4 @@
+1. Manually norminette all files
+2. Scan for norminette
+3. Fix
+4. For all new files, add their prototypes to libft.h
