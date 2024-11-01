@@ -17,7 +17,7 @@ void test_ft_strlen() {
     };
 
     // Change the loop counter type to size_t
-    for (size_t i = 0; i < sizeof(test_strings) / sizeof(test_strings[0]); i++) {
+    for (unsigned int i = 0; i < sizeof(test_strings) / sizeof(test_strings[0]); i++) {
         const char *str = test_strings[i];
         size_t expected_length = strlen(str);  // Standard strlen
         size_t actual_length = ft_strlen(str);  // Your custom ft_strlen

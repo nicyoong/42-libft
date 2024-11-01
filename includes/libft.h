@@ -18,6 +18,8 @@ size_t ft_strlen(const char *str);
 char *ft_strcpy(char *dest, const char *src);
 char *ft_strdup(const char *s1);
 char *ft_strncpy(char *dest, const char *src, size_t n);
+void *ft_memset(void *s, int c, size_t n);
+void* ft_calloc(size_t num, size_t size);
 
 
 #endif // LIBFT_H
