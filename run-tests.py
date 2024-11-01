@@ -19,6 +19,10 @@ def generate_shell_script(test_files):
                 output_exe = f"{function_name}.out"
                 testfile = testfile.replace("\\", "/") # Shell scripts are Unix, we change all to /
 
+            # List the function and wait for user input before testing
+            f.write(f'echo "Function: {function_name}"\n')
+            f.write('read -p "Press Enter to test this function..." input\n\n')  # Wait for user input
+
             # Ensure we are using forward slashes for Unix compatibility
             f.write(f'echo "Testing function: {function_name}"\n')
             f.write(f'echo "Compiling {testfile} with source file {source_file}..."\n')
@@ -50,6 +54,10 @@ def generate_batch_script(test_files):
                 function_name = testfile.replace("tests\\test_", "").replace(".c", "")
                 source_file = f"srcs\\{function_name}.c"
                 output_exe = f"{function_name}.exe"  # Using .exe for Windows
+
+            # List the function and wait for user input before testing
+            f.write(f'echo Function: {function_name}\n')
+            f.write('set /p input="Press Enter to test this function..."\n\n')  # Wait for user input
 
             f.write(f'echo Testing function: {function_name}\n')
             f.write(f'echo Compiling {testfile} with source file {source_file}...\n')
