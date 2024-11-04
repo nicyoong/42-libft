@@ -2,3 +2,28 @@
 2. Scan for norminette
 3. Fix
 4. For all new files, add their prototypes to libft.h
+
+Not done: (mandatory)
+
+memcpy
+memmove
+strlcpy
+strlcat
+strchr
+strrchr
+strncmp
+memchr
+memcmp
+strnstr
+
+substr
+strjoin
+strtrim
+split
+itoa
+strmapi
+striteri
+putchar_fd
+putstr_fd
+putendl_fd
+putnbr_fd
