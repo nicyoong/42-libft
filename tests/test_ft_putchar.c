@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../includes/libft.h"
+#include "../libft.h"
 
 void test_ft_putchar(void)
 {

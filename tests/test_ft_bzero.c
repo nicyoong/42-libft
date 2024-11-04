@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../includes/libft.h"
+#include "../libft.h"
 
 int main() {
     char buffer[10];

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "../includes/libft.h"
+#include "../libft.h"
 
 int ft_isdigit(int c); // Function prototype for ft_isdigit
 

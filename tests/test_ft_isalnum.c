@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "../includes/libft.h" // Including the header for ft_isalnum
+#include "../libft.h" // Including the header for ft_isalnum
 
 void test_ft_isalnum() {
     int test_chars[] = {'0', '9', 'A', 'Z', 'a', 'z', '@', '!', ' ', '1', 'b', '-', '5', '\t', 'm'};

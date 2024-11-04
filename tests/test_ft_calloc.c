@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../includes/libft.h" // Adjust the path as needed
+#include "../libft.h" // Adjust the path as needed
 
 void test_ft_calloc() {
     int *array;

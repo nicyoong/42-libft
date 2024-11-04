@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "../includes/libft.h" // Including the header for ft_isascii
+#include "../libft.h" // Including the header for ft_isascii
 
 void test_ft_isascii() {
     int test_chars[] = {0, 32, 65, 90, 97, 122, 127, 128, 255};

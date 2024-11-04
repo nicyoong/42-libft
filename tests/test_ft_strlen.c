@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h> // For size_t
-#include "../includes/libft.h" // Replace with your actual header for ft_strlen
+#include "../libft.h" // Replace with your actual header for ft_strlen
 
 void test_ft_strlen() {
     printf("String | Expected Length | Actual Length | Match\n");
