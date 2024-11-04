@@ -5,12 +5,6 @@
 
 Not done: (mandatory)
 
-memcpy
-memmove
-strlcpy
-strlcat
-strchr
-strrchr
 strncmp
 memchr
 memcmp

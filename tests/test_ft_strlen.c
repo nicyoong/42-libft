@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <string.h> // For size_t
+#include <stddef.h> // For size_t
+#include <string.h>
 #include "../libft.h" // Replace with your actual header for ft_strlen
 
 void test_ft_strlen() {
