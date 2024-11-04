@@ -1,10 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 20:58:37 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/04 20:58:41 by nyoong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
-void ft_bzero(void *s, size_t n) {
-    unsigned char *ptr = s;
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*ptr;
 
-    while (n > 0) {
-        *ptr++ = 0;
-        n--;
-    }
+	ptr = s;
+	while (n > 0)
+	{
+		*ptr++ = 0;
+		n--;
+	}
 }
