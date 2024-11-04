@@ -22,12 +22,13 @@ void test_ft_calloc() {
 
     // Test 2: Zero allocation (should return NULL)
     array = (int *)ft_calloc(0, size);
-    if (array != NULL) {
-        printf("Test 2 failed: ft_calloc(0, size) should return NULL\n");
+    if (array == NULL) {
+        printf("Test 2 failed: ft_calloc(0, size) should return a unique pointer, not NULL\n");
     } else {
-        printf("Test 2 passed: ft_calloc(0, size) returned NULL as expected\n");
+        printf("Test 2 passed: ft_calloc(0, size) returned a unique pointer as expected\n");
+        free(array); // Free the allocated memory if necessary
     }
-
+    
     // Test 3: Small allocation with larger count
     count = 10; // Allocate memory for 10 integers
     array = (int *)ft_calloc(count, size);
