@@ -1,28 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 21:08:51 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/04 21:13:03 by nyoong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <string.h>
 
-void *ft_memset(void *s, int c, size_t n) {
-    unsigned char *ptr = s;
-    unsigned char value = (unsigned char)c;
+static void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*ptr;
+	unsigned char	value;
 
-    while (n--) {
-        *ptr++ = value;
-    }
-
-    return s;
+	ptr = s;
+	value = (unsigned char)c;
+	while (n--)
+	{
+		*ptr++ = value;
+	}
+	return (s);
 }
 
-void* ft_calloc(size_t num, size_t size) {
-    size_t total_size = num * size;
+void	*ft_calloc(size_t num, size_t size)
+{
+	size_t	total_size;
+	void	*ptr;
 
-    void* ptr = malloc(total_size);
-
-    if (ptr == NULL) {
-        return NULL;
-    }
-
-    ft_memset(ptr, 0, total_size);
-
-    return ptr;
-
+	if (num == 0 || size == 0)
+		return (NULL);
+	total_size = num * size;
+	ptr = malloc(total_size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_memset(ptr, 0, total_size);
+	return (ptr);
 }
