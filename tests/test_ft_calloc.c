@@ -59,7 +59,7 @@ void test_ft_calloc() {
     free(array); // Free the allocated memory
 }
 
-int main() {
+int man() {
     test_ft_calloc();
     return 0;
 }
