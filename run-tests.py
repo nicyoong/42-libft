@@ -11,11 +11,11 @@ def generate_shell_script(test_files):
             # Check for the presence of '/' or '\' to determine the separator
             if '/' in testfile:
                 function_name = testfile.replace("tests/test_", "").replace(".c", "")
-                source_file = f"srcs/{function_name}.c"
+                source_file = f"{function_name}.c"  # Source file is in the root directory
                 output_exe = f"{function_name}.out"  
             else:
                 function_name = testfile.replace("tests\\test_", "").replace(".c", "")
-                source_file = f"srcs/{function_name}.c"
+                source_file = f"{function_name}.c"  # Source file is in the root directory
                 output_exe = f"{function_name}.out"
                 testfile = testfile.replace("\\", "/") # Shell scripts are Unix, we change all to /
 
@@ -47,12 +47,12 @@ def generate_batch_script(test_files):
             # Check for the presence of '/' or '\' to determine the separator
             if '/' in testfile:
                 function_name = testfile.replace("tests/test_", "").replace(".c", "")
-                source_file = f"srcs\\{function_name}.c"
+                source_file = f"{function_name}.c"  # Source file is in the root directory
                 output_exe = f"{function_name}.exe"
                 testfile = testfile.replace("/", "\\") # Batch scripts are Windows, we change all / to \
             else:
                 function_name = testfile.replace("tests\\test_", "").replace(".c", "")
-                source_file = f"srcs\\{function_name}.c"
+                source_file = f"{function_name}.c"  # Source file is in the root directory
                 output_exe = f"{function_name}.exe"  # Using .exe for Windows
 
             # List the function and wait for user input before testing
