@@ -6,8 +6,8 @@ void test_ft_memset() {
     char buffer1[20];
     char buffer2[20];
     
-    // Initialize buffer1 with 'B'
-    memset(buffer1, 'B', sizeof(buffer1));
+    // Initialize buffer2 with 'B'
+    memset(buffer2, 'B', sizeof(buffer1));
     // Use ft_memset to fill the first 10 bytes with 'A'
     ft_memset(buffer2, 'A', 10);
     
