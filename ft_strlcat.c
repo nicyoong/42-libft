@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/05 11:28:04 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/05 11:28:05 by nyoong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -13,9 +25,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	while (src[src_len])
 		src_len++;
 	if (size <= dest_len)
-		return size + src_len;
-    i = 0;
-	while (i < size - dest_len - 1 && src[i]) {
+		return (size + src_len);
+	i = 0;
+	while (i < size - dest_len - 1 && src[i])
+	{
 		dest[dest_len + i] = src[i];
 		i++;
 	}
