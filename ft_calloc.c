@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:08:51 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/04 21:41:21 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/05 13:20:58 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_calloc(size_t num, size_t size)
 	void	*ptr;
 
 	if (num == 0 || size == 0)
-		return malloc(1);
+		return (malloc(1));
 	total_size = num * size;
 	ptr = malloc(total_size);
 	if (ptr == NULL)

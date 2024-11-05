@@ -5,8 +5,6 @@
 
 Not done: (mandatory)
 
-strncmp
-memchr
 memcmp
 strnstr
 
