@@ -1,63 +1,104 @@
-#include <stddef.h>
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "../libft.h"
 
-// Test function
+// Assuming ft_strlcat is declared like this:
+size_t ft_strlcat(char *dest, const char *src, size_t size);
+
 void test_ft_strlcat() {
-    char dest[50];
+    char dest[50], expected[50];
     const char *src;
-    size_t result;
+    size_t result, result_expected;
 
-    // Test 1: Normal concatenation
+    // Test 1: Basic concatenation within buffer size
     strcpy(dest, "Hello");
+    strcpy(expected, "Hello");
     src = " World";
     result = ft_strlcat(dest, src, sizeof(dest));
-    assert(result == 11); // 5 + 6
-    assert(strcmp(dest, "Hello World") == 0);
+    result_expected = strlcat(expected, src, sizeof(expected));
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 1 Passed: %s\n", dest);
 
-    // Test 2: dest is large enough to hold src
+    // Test 2: Exact buffer size to fit concatenation (dest + src + null terminator)
+    strcpy(dest, "Hi");
+    strcpy(expected, "Hi");
+    src = " there";
+    result = ft_strlcat(dest, src, 9); // Should just fit "Hi there\0"
+    result_expected = strlcat(expected, src, 9);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 2 Passed: %s\n", dest);
+
+    // Test 3: Not enough space in dest (truncation)
     strcpy(dest, "Hello");
+    strcpy(expected, "Hello");
     src = " World";
-    result = ft_strlcat(dest, src, 20);
-    assert(result == 11); // 5 + 6
-    assert(strcmp(dest, "Hello World") == 0);
+    result = ft_strlcat(dest, src, 10); // Truncate " World" to " Worl"
+    result_expected = strlcat(expected, src, 10);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 3 Passed: %s\n", dest);
 
-    // Test 3: Not enough space in dest
+    // Test 4: No space available in dest (size <= dest_len)
     strcpy(dest, "Hello");
+    strcpy(expected, "Hello");
     src = " World";
-    result = ft_strlcat(dest, src, 10);
-    assert(result == 11); // 5 + 6
-    assert(strcmp(dest, "Hello Worl") == 0); // 'd' is not included
+    result = ft_strlcat(dest, src, 5); // No concatenation, size <= dest length
+    result_expected = strlcat(expected, src, 5);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 4 Passed: %s\n", dest);
 
-    // Test 4: dest is empty
-    strcpy(dest, "");
-    src = "World";
-    result = ft_strlcat(dest, src, sizeof(dest));
-    assert(result == 5); // Just "World"
-    assert(strcmp(dest, "World") == 0);
-
-    // Test 5: src is empty
+    // Test 5: Zero size (no concatenation should happen)
     strcpy(dest, "Hello");
+    strcpy(expected, "Hello");
+    src = " World";
+    result = ft_strlcat(dest, src, 0); // Size 0, no change
+    result_expected = strlcat(expected, src, 0);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 5 Passed: %s\n", dest);
+
+    // Test 6: Concatenation with empty source
+    strcpy(dest, "Hello");
+    strcpy(expected, "Hello");
     src = "";
-    result = ft_strlcat(dest, src, sizeof(dest));
-    assert(result == 5); // No change in dest
-    assert(strcmp(dest, "Hello") == 0);
+    result = ft_strlcat(dest, src, sizeof(dest)); // No change, src is empty
+    result_expected = strlcat(expected, src, sizeof(expected));
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 6 Passed: %s\n", dest);
 
-    // Test 6: Both dest and src are empty
+    // Test 7: Concatenation with empty destination
     strcpy(dest, "");
-    src = "";
-    result = ft_strlcat(dest, src, sizeof(dest));
-    assert(result == 0); // Both are empty
-    assert(strcmp(dest, "") == 0);
+    strcpy(expected, "");
+    src = "Hello";
+    result = ft_strlcat(dest, src, sizeof(dest)); // Should copy src to dest
+    result_expected = strlcat(expected, src, sizeof(expected));
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 7 Passed: %s\n", dest);
 
-    // Test 7: Size is less than or equal to the length of dest
-    strcpy(dest, "Hello");
-    src = " World";
-    result = ft_strlcat(dest, src, 5);
-    assert(result == 11); // 5 + 6
-    assert(strcmp(dest, "Hello") == 0); // No change since size <= dest_len
+    // Test 8: Buffer size of 1 (should only null-terminate dest)
+    strcpy(dest, "Initial");
+    strcpy(expected, "Initial");
+    src = "Data";
+    result = ft_strlcat(dest, src, 1); // No room for src, just null-terminate
+    result_expected = strlcat(expected, src, 1);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 8 Passed: %s\n", dest);
+
+    // Test 9: Exact fit with multiple concatenations
+    strcpy(dest, "abc");
+    strcpy(expected, "abc");
+    src = "def";
+    result = ft_strlcat(dest, src, 7); // Fit "abcdef" exactly in buffer of 7
+    result_expected = strlcat(expected, src, 7);
+    assert(result == result_expected);
+    assert(strcmp(dest, expected) == 0);
+    printf("Test 9 Passed: %s\n", dest);
 
     printf("All tests passed!\n");
 }
