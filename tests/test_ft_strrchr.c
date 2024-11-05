@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include "../libft.h"
 
 void test_ft_strrchr() {
     const char *test_str1 = "Hello, World!";

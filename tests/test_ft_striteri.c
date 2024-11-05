@@ -3,15 +3,19 @@
 #include <ctype.h>
 #include "../libft.h"
 
+// Update to take unsigned int index as the first parameter
 void to_upper(unsigned int index, char *c) {
+    (void)index;  // Mark index as unused
     *c = (char)toupper((unsigned char)*c);
 }
 
 void add_index(unsigned int index, char *c) {
+    // Use index in this function
     *c = *c + (char)index; // Modify character by adding its index
 }
 
 void reverse_characters(unsigned int index, char *c) {
+    (void)index;  // Mark index as unused
     *c = 'z' - (*c - 'a'); // Example transformation for lowercase letters
 }
 
@@ -51,3 +55,4 @@ int main() {
     ft_striteri_test();
     return 0;
 }
+ 

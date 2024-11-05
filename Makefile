@@ -37,6 +37,7 @@ SRCS = \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
+
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 
@@ -44,7 +45,7 @@ NAME = libft.a
 .PHONY: all clean fclean re
 
 # Default target
-all: $(NAME)
+all: $(NAME) clean
 
 # Create the library
 $(NAME): $(OBJS)

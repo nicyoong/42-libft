@@ -2,16 +2,19 @@
 #include <stdlib.h>
 #include <ctype.h>  // For toupper and tolower
 #include <string.h> // For strcmp
+#include "../libft.h"
 
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 // Test function to convert each character to uppercase
 char to_upper(unsigned int index, char c) {
+	(void)index;
     return (char)toupper(c);
 }
 
 // Test function to convert each character to lowercase
 char to_lower(unsigned int index, char c) {
+	(void)index;
     return (char)tolower(c);
 }
 

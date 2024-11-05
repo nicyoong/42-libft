@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:59:58 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 18:02:56 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:25:33 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	char	c;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -25,5 +26,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
-	write(fd, ((n % 10) + '0'), 1);
+	c = (char)((n % 10) + '0');
+	write(fd, &c, 1);
 }
