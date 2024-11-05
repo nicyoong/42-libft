@@ -5,15 +5,6 @@
 
 Not done: (mandatory)
 
-memcmp
-strnstr
-
-substr
-strjoin
-strtrim
-split
-itoa
-strmapi
 striteri
 putchar_fd
 putstr_fd
