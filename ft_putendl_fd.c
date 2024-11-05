@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:59:38 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 18:05:32 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:09:07 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return;
 	while (*s)
 	{
 		write(fd, s, 1);

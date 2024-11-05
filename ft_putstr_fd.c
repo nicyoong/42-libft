@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:59:53 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 17:59:53 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:08:59 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return;
 	while (*s)
 	{
 		write(fd, s, 1);
