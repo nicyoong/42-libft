@@ -6,13 +6,13 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:59:38 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 17:59:40 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:05:32 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s)
 	{
