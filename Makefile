@@ -55,6 +55,13 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Create the shared library (so target)
+SO_NAME = libft.so
+so: $(OBJS)
+	# Recompile object files with -fPIC
+	$(CC) $(CFLAGS) -fPIC $(PICFLAGS) -c $(SRCS)
+	$(CC) -shared -o $(SO_NAME) $(OBJS)
+
 # Clean object files
 clean:
 	rm -f $(OBJS)

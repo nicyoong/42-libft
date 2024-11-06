@@ -6,11 +6,32 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:58:39 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 17:00:38 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:17:24 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+static char	*ft_strdup(const char *s1)
+{
+	const char	*start;
+	size_t		length;
+	char		*copy;
+	char		*copy_start;
+
+	start = s1;
+	while (*s1)
+		s1++;
+	length = s1 - start;
+	copy = (char *)malloc((length + 1) * sizeof(char));
+	if (!copy)
+		return (NULL);
+	copy_start = copy;
+	while (*start)
+		*copy_start++ = *start++;
+	*copy_start = '\0';
+	return (copy);
+}
 
 static int	get_num_length(int n)
 {
@@ -54,12 +75,10 @@ char	*ft_itoa(int n)
 {
 	int				len;
 	unsigned int	num;
-	static char		*min_str;
 
 	if (n == -2147483648)
 	{
-		min_str = "-2147483648";
-		return (min_str);
+		return ft_strdup("-2147483648");
 	}
 	len = get_num_length(n);
 	if (n < 0)

@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:35:27 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/04 21:39:48 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/06 15:40:23 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strdup(const char *s1)
 	char		*copy;
 	char		*copy_start;
 
-	if (!s1)
-		return (NULL);
 	start = s1;
 	while (*s1)
 		s1++;

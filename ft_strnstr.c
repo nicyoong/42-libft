@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:31:17 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/05 13:32:04 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:26:39 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	if (!*needle)
 		return ((char *)haystack);
+	if (len == 0)
+		return (NULL);
 	needle_len = 0;
 	while (needle[needle_len])
 		needle_len++;
