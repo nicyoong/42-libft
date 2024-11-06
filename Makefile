@@ -45,7 +45,7 @@ NAME = libft.a
 .PHONY: all clean fclean re
 
 # Default target
-all: $(NAME) clean
+all: $(NAME)
 
 # Create the library
 $(NAME): $(OBJS)
