@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:59:53 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/06 18:07:33 by nyoong           ###   ########.fr       */
+/*   Created: 2024/11/06 17:52:19 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/06 18:06:19 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (s == NULL)
+	t_list	*current;
+	t_list	*next;
+
+	if (lst == NULL || *lst == NULL || del == NULL)
 		return ;
-	while (*s)
+	current = *lst;
+	while (current)
 	{
-		write(fd, s, 1);
-		s++;
+		next = current->next;
+		del(current->content);
+		free(current);
+		current = next;
 	}
+	*lst = NULL;
 }

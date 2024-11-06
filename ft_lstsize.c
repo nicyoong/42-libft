@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:59:53 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/06 18:07:33 by nyoong           ###   ########.fr       */
+/*   Created: 2024/11/06 17:25:08 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/06 17:26:51 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	if (s == NULL)
-		return ;
-	while (*s)
+	int	count;
+
+	count = 0;
+	while (lst)
 	{
-		write(fd, s, 1);
-		s++;
+		count++;
+		lst = lst->next;
 	}
+	return (count);
 }
