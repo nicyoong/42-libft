@@ -6,7 +6,7 @@
 /*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:28:04 by nyoong            #+#    #+#             */
-/*   Updated: 2024/11/07 15:58:34 by nyoong           ###   ########.fr       */
+/*   Updated: 2024/11/08 16:46:36 by nyoong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_len;
 	size_t	i;
 
-	if (size == 0)
-		return (0);
 	dest_len = 0;
 	src_len = 0;
 	while (dest[dest_len] && dest_len < size)
 		dest_len++;
-	if (size == 0)
-		return (src_len);
 	while (src[src_len])
 		src_len++;
+	if (size == 0)
+		return (src_len);
 	if (size <= dest_len)
 		return (size + src_len);
 	i = 0;
