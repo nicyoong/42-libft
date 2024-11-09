@@ -13,3 +13,8 @@
 
 output.txt
 .normignore
+
+reminders.txt
+*.py
+tests/
+en.subject.pdf
